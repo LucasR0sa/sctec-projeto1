@@ -1,6 +1,6 @@
 # Desenvolvedor(a) Back End Node — Projeto Final Avaliativo
-## Acervo CLI: Sistema de Gerenciamento de Biblioteca Acadêmica (PostgreSQL + Node.js)
 
+## Acervo CLI: Sistema de Gerenciamento de Biblioteca Acadêmica (PostgreSQL + Node.js)
 
 ## SUMÁRIO
 
@@ -17,7 +17,7 @@ Ao final, o estudante deverá entregar:
 
 - **Fork público no GitHub** com todo o histórico de desenvolvimento;
 - **Código-fonte organizado em camadas** (sem arquivos lixo, sem `node_modules` versionado);
-- **Scripts de banco reprodutíveis**: criação do esquema (DDL) e carga inicial (*seed*), executáveis de forma idempotente;
+- **Scripts de banco reprodutíveis**: criação do esquema (DDL) e carga inicial (_seed_), executáveis de forma idempotente;
 - **Arquivo `.env.example`** documentando as variáveis necessárias (o `.env` real **não** deve ser versionado);
 - **README.md completo** com modelagem, instalação, execução e exemplos;
 - **Histórico de commits semânticos** e uso de branches (GitFlow simplificado);
@@ -32,7 +32,6 @@ Ao final, o estudante deverá entregar:
 ### Links obrigatórios
 
 - Link do fork público no GitHub;
-
 
 > Nesta versão não há gravação de vídeo. No lugar, registre no README exemplos reais de execução (entrada e saída do terminal).
 
@@ -52,8 +51,7 @@ Este projeto **não começa do zero**. Ele parte de um repositório template no 
 4. Clone o seu fork e desenvolva a partir dele, seguindo os requisitos deste documento.
 5. Mantenha este documento de requisitos versionado no repositório.
 
-**Por que começar de um fork de template?** Porque reproduz o fluxo real de trabalho: a documentação técnica vive versionada junto do código (como o README de uma biblioteca ou um card de requisitos), e partir de um template é o padrão em *bootstraps* de frameworks e em contribuições open-source. Aprender esse fluxo é uma habilidade transferível direta para o mercado.
-
+**Por que começar de um fork de template?** Porque reproduz o fluxo real de trabalho: a documentação técnica vive versionada junto do código (como o README de uma biblioteca ou um card de requisitos), e partir de um template é o padrão em _bootstraps_ de frameworks e em contribuições open-source. Aprender esse fluxo é uma habilidade transferível direta para o mercado.
 
 ### Código do template:
 
@@ -110,7 +108,7 @@ export class ListarLivrosView extends ConsoleView {
 
   protected async update(): Promise<void> {
     const livros = await this.livroRepository.findAll()
-    livros.forEach(l => this.display(`${l.titulo} — ${l.isbn}`))
+    livros.forEach((l) => this.display(`${l.titulo} — ${l.isbn}`))
     await this.prompt('\nPressione ENTER para voltar:')
     this.exit()
   }
@@ -119,15 +117,15 @@ export class ListarLivrosView extends ConsoleView {
 
 Métodos disponíveis na subclasse:
 
-| Método | O que faz |
-|--------|-----------|
-| `prompt(message)` | Lê uma linha do terminal; trata Ctrl+C (SIGINT) sem crash |
-| `display(message)` | Imprime no stdout |
-| `reportTechnicalError(error, userMessage)` | Loga o erro técnico em stderr e exibe mensagem amigável ao usuário |
-| `clear()` | Limpa a tela |
-| `exit()` | Encerra o loop da view atual |
-| `onEnter()` | Hook chamado uma vez antes do loop — sobrescreva para inicialização |
-| `onExit()` | Hook chamado após o loop — sobrescreva para cleanup |
+| Método                                     | O que faz                                                           |
+| ------------------------------------------ | ------------------------------------------------------------------- |
+| `prompt(message)`                          | Lê uma linha do terminal; trata Ctrl+C (SIGINT) sem crash           |
+| `display(message)`                         | Imprime no stdout                                                   |
+| `reportTechnicalError(error, userMessage)` | Loga o erro técnico em stderr e exibe mensagem amigável ao usuário  |
+| `clear()`                                  | Limpa a tela                                                        |
+| `exit()`                                   | Encerra o loop da view atual                                        |
+| `onEnter()`                                | Hook chamado uma vez antes do loop — sobrescreva para inicialização |
+| `onExit()`                                 | Hook chamado após o loop — sobrescreva para cleanup                 |
 
 A `MainView` (view raiz instanciada em `main.ts`) deve chamar `super(true)` para que o readline seja fechado automaticamente ao encerrar a aplicação, evitando o processo "pendurado" (dedução D07).
 
@@ -170,7 +168,7 @@ Uma estrutura de referência (a nomenclatura **não** precisa ser idêntica; o a
 
 **Boas práticas valorizadas (não obrigatórias — contam como bônus).** A separação básica em camadas, acima, é o mínimo exigido (ver RNF02). As práticas a seguir não fazem parte do mínimo, mas elevam a qualidade e são reconhecidas na seção 5.3:
 
-- **Injeção de dependência via parâmetro/construtor:** o `repository` recebe o pool de conexão; o `service` recebe o `repository`. Nada cria sua própria conexão internamente. *(→ bônus B08)*
+- **Injeção de dependência via parâmetro/construtor:** o `repository` recebe o pool de conexão; o `service` recebe o `repository`. Nada cria sua própria conexão internamente. _(→ bônus B08)_
 - **Encapsulamento profundo no nível de módulo:** fronteiras nítidas, e.g a CLI não conhece SQL e o `repository` não conhece a regra de negócio.
 - **Erros previsíveis como valor de retorno:** falhas esperadas (livro inexistente, sem exemplar disponível) sinalizadas de forma controlada. E.g retorno tipado ou erro customizado tratado, em vez de exceção que derruba o processo.
 
@@ -248,7 +246,7 @@ erDiagram
 const { rows } = await pool.query(
   'SELECT id, titulo FROM livro WHERE isbn = $1',
   [isbn]
-);
+)
 ```
 
 **Exemplo — `.env.example` (referência das variáveis):**
@@ -266,6 +264,7 @@ DB_PORT=5432
 ```
 
 Nada além desses recortes deve ser tratado como modelo a ser reproduzido literalmente.
+
 <p align="right"><a href="#sumário">↑ Voltar ao índice</a></p>
 
 ### 1.8 Exemplo de fluxo esperado da aplicação
@@ -286,6 +285,7 @@ flowchart TD
     K --> L([Volta ao menu])
     L --> E
 ```
+
 ---
 
 ## 2. Critérios de Avaliação
@@ -302,21 +302,21 @@ A nota varia de **0 a 10**. A composição tem três camadas, desenhadas para se
 
 **Apresentação e Processo — 3,50 pontos**
 
-| Nº | Critério | Zero | Parcial | Máximo |
-|---|---|---|---|---|
-| 1 | README completo (modelagem, instalação, execução, exemplos) | 0 | 0,75 | 1,50 |
-| 2 | Organização do repositório (estrutura em camadas, sem lixo, código legível) | 0 | 0,50 | 1,00 |
-| 3 | Versionamento: commits semânticos, branches e histórico coerente (GitFlow) | 0 | 0,50 | 1,00 |
+| Nº  | Critério                                                                    | Zero | Parcial | Máximo |
+| --- | --------------------------------------------------------------------------- | ---- | ------- | ------ |
+| 1   | README completo (modelagem, instalação, execução, exemplos)                 | 0    | 0,75    | 1,50   |
+| 2   | Organização do repositório (estrutura em camadas, sem lixo, código legível) | 0    | 0,50    | 1,00   |
+| 3   | Versionamento: commits semânticos, branches e histórico coerente (GitFlow)  | 0    | 0,50    | 1,00   |
 
 **Desenvolvimento — 6,50 pontos**
 
-| Nº | Critério | Zero | Parcial | Máximo |
-|---|---|---|---|---|
-| 4 | Modelagem do banco: entidades, relação N:N, chaves e restrições de integridade coerentes | 0 | 0,75 | 1,50 |
-| 5 | Conexão com PostgreSQL via `pg` + uso correto de `dotenv`, projeto executa sem erro | 0 | 0,50 | 1,00 |
-| 6 | Camada de acesso a dados com **queries parametrizadas** (sem ORM, sem concatenação) | 0 | 0,75 | 1,50 |
-| 7 | Cadastro de funcionários, autores e livros (com associação de autores) funcionando | 0 | 0,50 | 1,00 |
-| 8 | Reserva e devolução respeitando a regra de disponibilidade | 0 | 0,75 | 1,50 |
+| Nº  | Critério                                                                                 | Zero | Parcial | Máximo |
+| --- | ---------------------------------------------------------------------------------------- | ---- | ------- | ------ |
+| 4   | Modelagem do banco: entidades, relação N:N, chaves e restrições de integridade coerentes | 0    | 0,75    | 1,50   |
+| 5   | Conexão com PostgreSQL via `pg` + uso correto de `dotenv`, projeto executa sem erro      | 0    | 0,50    | 1,00   |
+| 6   | Camada de acesso a dados com **queries parametrizadas** (sem ORM, sem concatenação)      | 0    | 0,75    | 1,50   |
+| 7   | Cadastro de funcionários, autores e livros (com associação de autores) funcionando       | 0    | 0,50    | 1,00   |
+| 8   | Reserva e devolução respeitando a regra de disponibilidade                               | 0    | 0,75    | 1,50   |
 
 **Subtotal base: 10,00 pontos.**
 
@@ -324,44 +324,45 @@ A nota varia de **0 a 10**. A composição tem três camadas, desenhadas para se
 
 Penalidades aplicadas sobre a nota base. Cada dedução aplicada deve ser **registrada por código** na devolutiva (ex.: "−1,0 por D02").
 
-| Cód. | Falha | Penalidade |
-|---|---|---|
-| **D01** | Uso de ORM ou query-builder (proibido) | Zera o critério 6 **e** −1,50 |
-| **D02** | SQL montado por concatenação de input (vulnerável a SQL injection) | −1,50 a −2,50 |
-| **D03** | Credenciais hardcoded no código ou `.env` versionado no repositório | −1,00 a −1,50 |
-| **D04** | Código com erros/avisos de lint (ESLint) não tratados | −0,50 |
-| **D05** | Formatação inconsistente / ausência de Prettier (ou equivalente) | −0,25 |
-| **D06** | `node_modules`, dumps ou arquivos lixo versionados | −0,25 |
-| **D07** | Pool de conexão não encerrado / vazamento de conexões | −0,50 |
-| **D08** | Utilização de conexão simples ao invés de Pool de conexão | −0,50 |
-| **D09** | Aplicação trava (crash) diante de erro previsível (entrada inválida, livro inexistente) | −0,75 |
-| **D10** | Esquema não reprodutível (sem script de criação, depende de passos manuais não documentados) | −0,50 |
-| **D11** | README sem exemplos reais de execução | −0,50 |
-| **D12** | Dependência de runtime fora do permitido (além de `pg` e `dotenv`; CLI é exceção, ver B01) | −0,50 por dependência indevida |
+| Cód.    | Falha                                                                                        | Penalidade                     |
+| ------- | -------------------------------------------------------------------------------------------- | ------------------------------ |
+| **D01** | Uso de ORM ou query-builder (proibido)                                                       | Zera o critério 6 **e** −1,50  |
+| **D02** | SQL montado por concatenação de input (vulnerável a SQL injection)                           | −1,50 a −2,50                  |
+| **D03** | Credenciais hardcoded no código ou `.env` versionado no repositório                          | −1,00 a −1,50                  |
+| **D04** | Código com erros/avisos de lint (ESLint) não tratados                                        | −0,50                          |
+| **D05** | Formatação inconsistente / ausência de Prettier (ou equivalente)                             | −0,25                          |
+| **D06** | `node_modules`, dumps ou arquivos lixo versionados                                           | −0,25                          |
+| **D07** | Pool de conexão não encerrado / vazamento de conexões                                        | −0,50                          |
+| **D08** | Utilização de conexão simples ao invés de Pool de conexão                                    | −0,50                          |
+| **D09** | Aplicação trava (crash) diante de erro previsível (entrada inválida, livro inexistente)      | −0,75                          |
+| **D10** | Esquema não reprodutível (sem script de criação, depende de passos manuais não documentados) | −0,50                          |
+| **D11** | README sem exemplos reais de execução                                                        | −0,50                          |
+| **D12** | Dependência de runtime fora do permitido (além de `pg` e `dotenv`; CLI é exceção, ver B01)   | −0,50 por dependência indevida |
 
 ### 5.3 Bônus — O que AUMENTA a nota
 
 Acréscimos sobre a nota base, sempre **justificados por escrito** na devolutiva. O total final permanece limitado a 10,00.
 
-| Cód. | Mérito | Bônus |
-|---|---|---|
-| **B01** | Biblioteca de CLI bem aplicada (`inquirer`/`prompts`/`commander`), com menu navegável e UX clara | +1,50 |
-| **B02** | Migrations versionadas e *seed* reprodutível por comando | +1,00 |
-| **B03** | Transações (`BEGIN`/`COMMIT`/`ROLLBACK`) garantindo atomicidade em reserva/devolução | +0,75 |
-| **B04** | Modelo rico em restrições (`CHECK`, `UNIQUE`, `ON DELETE` coerente) com justificativa | +0,50 |
-| **B05** | Tratamento de erro como valor (padrão `Result`/`Either`) ou hierarquia de erros customizados bem usada | +1,50 |
-| **B06** | Testes automatizados cobrindo a regra de reserva/devolução | +0,75 |
-| **B07** | Validação de entrada de dados robusta | +0,50 |
+| Cód.    | Mérito                                                                                                                                                                                                                                                                               | Bônus         |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| **B01** | Biblioteca de CLI bem aplicada (`inquirer`/`prompts`/`commander`), com menu navegável e UX clara                                                                                                                                                                                     | +1,50         |
+| **B02** | Migrations versionadas e _seed_ reprodutível por comando                                                                                                                                                                                                                             | +1,00         |
+| **B03** | Transações (`BEGIN`/`COMMIT`/`ROLLBACK`) garantindo atomicidade em reserva/devolução                                                                                                                                                                                                 | +0,75         |
+| **B04** | Modelo rico em restrições (`CHECK`, `UNIQUE`, `ON DELETE` coerente) com justificativa                                                                                                                                                                                                | +0,50         |
+| **B05** | Tratamento de erro como valor (padrão `Result`/`Either`) ou hierarquia de erros customizados bem usada                                                                                                                                                                               | +1,50         |
+| **B06** | Testes automatizados cobrindo a regra de reserva/devolução                                                                                                                                                                                                                           | +0,75         |
+| **B07** | Validação de entrada de dados robusta                                                                                                                                                                                                                                                | +0,50         |
 | **B08** | **Metodologia própria / inovação** não prevista nesta rubrica (avaliação discricionária do tutor, com justificativa registrada). Exemplo: aplicação orientada a objetos com injeção de dependência; aplicação de princípios de programação funcional (imutabilidade, composição...). | +0,25 a +1,00 |
 
 ---
+
 <p align="right"><a href="#sumário">↑ Voltar ao índice</a></p>
 
 ## 3. Referências e Fundamentação
 
-- **Ted Neward**, *The Vietnam of Computer Science* (2006): o custo real do *impedance mismatch* objeto-relacional, que motiva expor o SQL antes de abstraí-lo.
-- **Martin Fowler**, *Patterns of Enterprise Application Architecture* (2002): padrões Repository e Data Mapper, base da separação entre domínio e persistência.
-- **John Ousterhout**, *A Philosophy of Software Design* (2018): módulos profundos — interface estreita escondendo a complexidade de acesso a dados.
-- **Alexis King**, *Parse, Don't Validate* (2019): validação na fronteira de entrada (fundamenta o bônus B07).
-- **OWASP**: *queries* parametrizadas como defesa canônica contra SQL injection (fundamenta RNF01 e a dedução D02).
-- **Documentação oficial do PostgreSQL** e do **node-postgres (`pg`)**: referência técnica para conexão, *pooling* e *prepared statements*.
+- **Ted Neward**, _The Vietnam of Computer Science_ (2006): o custo real do _impedance mismatch_ objeto-relacional, que motiva expor o SQL antes de abstraí-lo.
+- **Martin Fowler**, _Patterns of Enterprise Application Architecture_ (2002): padrões Repository e Data Mapper, base da separação entre domínio e persistência.
+- **John Ousterhout**, _A Philosophy of Software Design_ (2018): módulos profundos — interface estreita escondendo a complexidade de acesso a dados.
+- **Alexis King**, _Parse, Don't Validate_ (2019): validação na fronteira de entrada (fundamenta o bônus B07).
+- **OWASP**: _queries_ parametrizadas como defesa canônica contra SQL injection (fundamenta RNF01 e a dedução D02).
+- **Documentação oficial do PostgreSQL** e do **node-postgres (`pg`)**: referência técnica para conexão, _pooling_ e _prepared statements_.
