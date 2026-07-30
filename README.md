@@ -20,20 +20,19 @@ Ao final, o estudante deverá entregar:
 - **Scripts de banco reprodutíveis**: criação do esquema (DDL) e carga inicial (*seed*), executáveis de forma idempotente;
 - **Arquivo `.env.example`** documentando as variáveis necessárias (o `.env` real **não** deve ser versionado);
 - **README.md completo** com modelagem, instalação, execução e exemplos;
-- **Quadro Kanban** com as tarefas do projeto;
 - **Histórico de commits semânticos** e uso de branches (GitFlow simplificado);
 - **Exemplos de execução documentados no README** (substituem a gravação de vídeo).
 
 ### Entrega no AVA
 
 - **Tarefa:** Projeto Avaliativo — `Modulo 01 - Projeto Avaliativo`
-- **Prazo:** `20/07/2026, segunda-feira, até as 22h`
+- **Prazo:** `31/07/2026, segunda-feira, até as 21h`
 - **Peso:** `60% da nota do modulo 01, conforme calendário de aula (matriz curricular)`
 
 ### Links obrigatórios
 
 - Link do fork público no GitHub;
-- Link do quadro Kanban (Trello, GitHub Projects, Notion ou similar).
+
 
 > Nesta versão não há gravação de vídeo. No lugar, registre no README exemplos reais de execução (entrada e saída do terminal).
 
@@ -305,7 +304,7 @@ A nota varia de **0 a 10**. A composição tem três camadas, desenhadas para se
 
 | Nº | Critério | Zero | Parcial | Máximo |
 |---|---|---|---|---|
-| 1 | README completo (modelagem, instalação, execução, exemplos, link do Kanban) | 0 | 0,75 | 1,50 |
+| 1 | README completo (modelagem, instalação, execução, exemplos) | 0 | 0,75 | 1,50 |
 | 2 | Organização do repositório (estrutura em camadas, sem lixo, código legível) | 0 | 0,50 | 1,00 |
 | 3 | Versionamento: commits semânticos, branches e histórico coerente (GitFlow) | 0 | 0,50 | 1,00 |
 
