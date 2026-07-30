@@ -1,24 +1,42 @@
 import 'dotenv/config'
-import { initDatabase, pool } from './@common/database/database'
-import { UserRepository } from './repositories/user.repository'
-import { CreateUserUseCase } from './usecase/create-user.uc'
-import { MainView } from './view/main.view'
 
-async function bootstrap() {
-  await initDatabase()
+import { AutorController } from './controllers/AutorController'
+import {
+  closeDatabaseConnection,
+  pool,
+  testDatabaseConnection
+} from './database/connection'
+import { AutorMenu } from './menus/AutorMenu'
+import { MainMenu } from './menus/MainMenu'
+import { AutorRepository } from './repositories/AutorRepository'
+import { AutorService } from './services/AutorService'
+import { Cli } from './utils/Cli'
 
-  const createUserUc = new CreateUserUseCase(new UserRepository(pool))
-  const mainView = new MainView(createUserUc)
+async function bootstrap(): Promise<void> {
+  const cli = new Cli()
 
-  await mainView.start()
+  try {
+    await testDatabaseConnection()
+
+    const autorRepository = new AutorRepository(pool)
+    const autorService = new AutorService(autorRepository)
+    const autorController = new AutorController(cli, autorService)
+    const autorMenu = new AutorMenu(cli, autorController)
+    const mainMenu = new MainMenu(cli, autorMenu)
+
+    await mainMenu.start()
+  } finally {
+    cli.close()
+    await closeDatabaseConnection()
+  }
 }
 
 bootstrap()
   .then(() => {
-    process.exit(0)
+    process.exitCode = 0
   })
-  .catch((e: unknown) => {
-    console.log('UNHANDLED REJECTION')
-    console.error(e)
-    process.exit(1)
+  .catch((error: unknown) => {
+    console.log('Erro fatal ao executar a aplicacao.')
+    console.error(error)
+    process.exitCode = 1
   })
