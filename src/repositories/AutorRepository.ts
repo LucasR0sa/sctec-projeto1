@@ -72,6 +72,18 @@ export class AutorRepository {
     return AutorModel.fromRow(rows[0])
   }
 
+  async findExistingIds(ids: number[]): Promise<number[]> {
+    const { rows } = await this.pool.query<{ id: number }>(
+      `SELECT id
+       FROM autores
+       WHERE id = ANY($1::int[])
+         AND ativo = TRUE`,
+      [ids]
+    )
+
+    return rows.map((row) => row.id)
+  }
+
   async update(id: number, data: SalvarAutorData): Promise<Autor | null> {
     const { rows } = await this.pool.query<AutorRow>(
       `UPDATE autores
