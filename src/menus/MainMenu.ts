@@ -1,4 +1,5 @@
 import { AutorMenu } from './AutorMenu'
+import { ClienteMenu } from './ClienteMenu'
 import { LivroMenu } from './LivroMenu'
 import { Cli } from '../utils/Cli'
 
@@ -6,7 +7,8 @@ export class MainMenu {
   constructor(
     private readonly cli: Cli,
     private readonly autorMenu: AutorMenu,
-    private readonly livroMenu: LivroMenu
+    private readonly livroMenu: LivroMenu,
+    private readonly clienteMenu: ClienteMenu
   ) {}
 
   async start(): Promise<void> {
@@ -34,6 +36,8 @@ export class MainMenu {
           await this.livroMenu.start()
           break
         case '3':
+          await this.clienteMenu.start()
+          break
         case '4':
         case '5':
           this.cli.writeLine('Funcionalidade em desenvolvimento nesta etapa.')
