@@ -1,10 +1,12 @@
 import { AutorMenu } from './AutorMenu'
+import { LivroMenu } from './LivroMenu'
 import { Cli } from '../utils/Cli'
 
 export class MainMenu {
   constructor(
     private readonly cli: Cli,
-    private readonly autorMenu: AutorMenu
+    private readonly autorMenu: AutorMenu,
+    private readonly livroMenu: LivroMenu
   ) {}
 
   async start(): Promise<void> {
@@ -29,6 +31,8 @@ export class MainMenu {
           await this.autorMenu.start()
           break
         case '2':
+          await this.livroMenu.start()
+          break
         case '3':
         case '4':
         case '5':
