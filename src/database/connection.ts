@@ -1,4 +1,11 @@
-import { Pool } from 'pg'
+import { Pool, types } from 'pg'
+
+const POSTGRES_DATE_OID = 1082
+
+// O parser padrao do pg converte DATE em objeto Date usando o fuso da maquina,
+// o que desloca o dia e quebra a exibicao. Colunas DATE devem chegar como texto
+// no formato AAAA-MM-DD, que e o tipo declarado nos models.
+types.setTypeParser(POSTGRES_DATE_OID, (value) => value)
 
 function getRequiredEnv(name: string): string {
   const value = process.env[name]
