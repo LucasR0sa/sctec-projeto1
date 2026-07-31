@@ -15,9 +15,10 @@ O enunciado e a rubrica originais estao preservados em [docs/enunciado-e-rubrica
 4. [Instalacao](#instalacao)
 5. [Execucao](#execucao)
 6. [Exemplos reais de execucao](#exemplos-reais-de-execucao)
-7. [Decisoes tecnicas](#decisoes-tecnicas)
-8. [Scripts disponiveis](#scripts-disponiveis)
-9. [Estrutura de pastas](#estrutura-de-pastas)
+7. [Testes automatizados](#testes-automatizados)
+8. [Decisoes tecnicas](#decisoes-tecnicas)
+9. [Scripts disponiveis](#scripts-disponiveis)
+10. [Estrutura de pastas](#estrutura-de-pastas)
 
 ---
 
