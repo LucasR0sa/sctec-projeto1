@@ -1,6 +1,6 @@
-import { AtualizarFuncionarioInput, Funcionario } from '../models/Funcionario'
+﻿import { AtualizarFuncionarioInput, Funcionario } from '../models/Funcionario'
 import { FuncionarioService } from '../services/FuncionarioService'
-import { Cli } from '../utils/Cli'
+import { Cli, CliClosedError } from '../utils/Cli'
 import { DomainError } from '../utils/DomainError'
 import { parsePositiveInteger } from '../utils/validation.util'
 
@@ -157,6 +157,10 @@ export class FuncionarioController {
   }
 
   private handleError(error: unknown): void {
+    if (error instanceof CliClosedError) {
+      throw error
+    }
+
     if (error instanceof DomainError) {
       this.cli.writeLine(error.message)
       return

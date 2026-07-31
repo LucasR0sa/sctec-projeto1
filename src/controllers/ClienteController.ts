@@ -1,6 +1,6 @@
-import { AtualizarClienteInput, Cliente } from '../models/Cliente'
+﻿import { AtualizarClienteInput, Cliente } from '../models/Cliente'
 import { ClienteService } from '../services/ClienteService'
-import { Cli } from '../utils/Cli'
+import { Cli, CliClosedError } from '../utils/Cli'
 import { DomainError } from '../utils/DomainError'
 import { parsePositiveInteger } from '../utils/validation.util'
 
@@ -162,6 +162,10 @@ export class ClienteController {
   }
 
   private handleError(error: unknown): void {
+    if (error instanceof CliClosedError) {
+      throw error
+    }
+
     if (error instanceof DomainError) {
       this.cli.writeLine(error.message)
       return

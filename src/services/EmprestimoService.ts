@@ -57,15 +57,7 @@ export class EmprestimoService {
       livroId,
       clienteId,
       funcionarioId: this.parseFuncionarioId(input.funcionarioId),
-      diasParaDevolucao:
-        input.diasParaDevolucao === undefined
-          ? DIAS_PADRAO
-          : parseIntegerInRange(
-              input.diasParaDevolucao,
-              'Prazo em dias',
-              DIAS_MINIMO,
-              DIAS_MAXIMO
-            ),
+      diasParaDevolucao: this.parseDias(input.diasParaDevolucao),
       observacao: normalizeOptionalText(input.observacao)
     }
 
@@ -112,6 +104,25 @@ export class EmprestimoService {
     }
 
     return emprestimo
+  }
+
+  /**
+   * O controller envia string vazia quando o usuario apenas aperta ENTER,
+   * entao nao basta checar undefined para aplicar o prazo padrao.
+   */
+  private parseDias(value: string | undefined): number {
+    const normalized = normalizeOptionalText(value)
+
+    if (!normalized) {
+      return DIAS_PADRAO
+    }
+
+    return parseIntegerInRange(
+      normalized,
+      'Prazo em dias',
+      DIAS_MINIMO,
+      DIAS_MAXIMO
+    )
   }
 
   private parseFuncionarioId(value: string | undefined): number | null {
