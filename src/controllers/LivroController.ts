@@ -1,6 +1,6 @@
-import { AtualizarLivroInput, Livro } from '../models/Livro'
+﻿import { AtualizarLivroInput, Livro } from '../models/Livro'
 import { LivroService } from '../services/LivroService'
-import { Cli } from '../utils/Cli'
+import { Cli, CliClosedError } from '../utils/Cli'
 import { DomainError } from '../utils/DomainError'
 import { parsePositiveInteger } from '../utils/validation.util'
 
@@ -197,6 +197,10 @@ export class LivroController {
   }
 
   private handleError(error: unknown): void {
+    if (error instanceof CliClosedError) {
+      throw error
+    }
+
     if (error instanceof DomainError) {
       this.cli.writeLine(error.message)
       return

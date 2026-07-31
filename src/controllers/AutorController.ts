@@ -1,6 +1,6 @@
-import { AtualizarAutorInput, Autor } from '../models/Autor'
+﻿import { AtualizarAutorInput, Autor } from '../models/Autor'
 import { AutorService } from '../services/AutorService'
-import { Cli } from '../utils/Cli'
+import { Cli, CliClosedError } from '../utils/Cli'
 import { DomainError } from '../utils/DomainError'
 import { parsePositiveInteger } from '../utils/validation.util'
 
@@ -170,6 +170,10 @@ export class AutorController {
   }
 
   private handleError(error: unknown): void {
+    if (error instanceof CliClosedError) {
+      throw error
+    }
+
     if (error instanceof DomainError) {
       this.cli.writeLine(error.message)
       return

@@ -1,6 +1,6 @@
-import { Emprestimo } from '../models/Emprestimo'
+﻿import { Emprestimo } from '../models/Emprestimo'
 import { EmprestimoService } from '../services/EmprestimoService'
-import { Cli } from '../utils/Cli'
+import { Cli, CliClosedError } from '../utils/Cli'
 import { DomainError } from '../utils/DomainError'
 import { parsePositiveInteger } from '../utils/validation.util'
 
@@ -146,6 +146,10 @@ export class EmprestimoController {
   }
 
   private handleError(error: unknown): void {
+    if (error instanceof CliClosedError) {
+      throw error
+    }
+
     if (error instanceof DomainError) {
       this.cli.writeLine(error.message)
       return

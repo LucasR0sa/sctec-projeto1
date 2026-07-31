@@ -3,6 +3,7 @@ import { ClienteMenu } from './ClienteMenu'
 import { EmprestimoMenu } from './EmprestimoMenu'
 import { FuncionarioMenu } from './FuncionarioMenu'
 import { LivroMenu } from './LivroMenu'
+import { RelatorioMenu } from './RelatorioMenu'
 import { Cli } from '../utils/Cli'
 
 export class MainMenu {
@@ -12,7 +13,8 @@ export class MainMenu {
     private readonly livroMenu: LivroMenu,
     private readonly clienteMenu: ClienteMenu,
     private readonly emprestimoMenu: EmprestimoMenu,
-    private readonly funcionarioMenu: FuncionarioMenu
+    private readonly funcionarioMenu: FuncionarioMenu,
+    private readonly relatorioMenu: RelatorioMenu
   ) {}
 
   async start(): Promise<void> {
@@ -50,8 +52,7 @@ export class MainMenu {
           await this.funcionarioMenu.start()
           break
         case '6':
-          this.cli.writeLine('Funcionalidade em desenvolvimento nesta etapa.')
-          await this.cli.pause()
+          await this.relatorioMenu.start()
           break
         case '0':
           running = false
