@@ -391,6 +391,40 @@ Senha deve ter pelo menos 6 caracteres.
 
 ---
 
+## Testes automatizados
+
+```bash
+npm run db:reset   # deixa o banco no estado do seed
+npm test
+```
+
+```text
+> tsx --test src/__tests__/*.test.ts
+
+▶ Regra de disponibilidade em emprestimo e devolucao
+  ✔ recusa emprestimo de livro inexistente
+  ✔ recusa emprestimo para cliente inexistente
+  ✔ recusa identificador que nao seja inteiro positivo
+  ✔ baixa um exemplar ao registrar o emprestimo
+  ✔ recusa emprestimo sem exemplar disponivel
+  ✔ mantem o estoque intacto depois da tentativa recusada
+  ✔ recusa o mesmo livro para o mesmo cliente duas vezes
+  ✔ devolve o exemplar ao acervo e carimba a data
+  ✔ recusa devolver duas vezes o mesmo emprestimo
+  ✔ recusa devolucao de emprestimo inexistente
+✔ Regra de disponibilidade em emprestimo e devolucao
+
+ℹ tests 10
+ℹ pass 10
+ℹ fail 0
+```
+
+Os testes usam o **runner nativo do Node** (`node:test`), sem adicionar nenhuma dependencia ao projeto.
+
+Sao testes de **integracao**, propositalmente: a regra de disponibilidade e cumprida em conjunto pela aplicacao e pelo PostgreSQL — validacao no service, garantia no trigger e na constraint. Um mock do repository provaria apenas que o mock funciona. Cada execucao cria seu proprio livro de teste com um unico exemplar (o cenario que expoe a regra) e limpa os dados ao final.
+
+---
+
 ## Decisoes tecnicas
 
 ### Queries parametrizadas, sempre
@@ -442,17 +476,18 @@ O `pool.end()` roda em `finally`, entao acontece mesmo se a aplicacao falhar no 
 
 ## Scripts disponiveis
 
-| Comando                | O que faz                                     |
-| ---------------------- | --------------------------------------------- |
-| `npm run dev`          | executa a CLI em modo desenvolvimento (`tsx`) |
-| `npm run build`        | compila o TypeScript para `dist/`             |
-| `npm start`            | executa a versao compilada                    |
-| `npm run db:schema`    | cria o esquema do banco                       |
-| `npm run db:seed`      | carrega os dados iniciais                     |
-| `npm run db:reset`     | executa schema e seed em sequencia            |
-| `npm run lint`         | ESLint com `strictTypeChecked`                |
-| `npm run format`       | aplica Prettier                               |
-| `npm run format:check` | verifica formatacao sem alterar arquivos      |
+| Comando                | O que faz                                        |
+| ---------------------- | ------------------------------------------------ |
+| `npm run dev`          | executa a CLI em modo desenvolvimento (`tsx`)    |
+| `npm run build`        | compila o TypeScript para `dist/`                |
+| `npm test`             | testes de integracao com o runner nativo do Node |
+| `npm start`            | executa a versao compilada                       |
+| `npm run db:schema`    | cria o esquema do banco                          |
+| `npm run db:seed`      | carrega os dados iniciais                        |
+| `npm run db:reset`     | executa schema e seed em sequencia               |
+| `npm run lint`         | ESLint com `strictTypeChecked`                   |
+| `npm run format`       | aplica Prettier                                  |
+| `npm run format:check` | verifica formatacao sem alterar arquivos         |
 
 ---
 

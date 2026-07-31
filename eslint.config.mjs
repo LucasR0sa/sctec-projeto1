@@ -77,6 +77,14 @@ const config = defineConfig(
         }
       ]
     }
+  },
+  {
+    // describe/it do node:test retornam Promise por design: quem aguarda e o
+    // proprio runner, entao exigir await aqui seria ruido.
+    files: ['src/**/*.test.ts'],
+    rules: {
+      '@typescript-eslint/no-floating-promises': 'off'
+    }
   }
 )
 
