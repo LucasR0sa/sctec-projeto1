@@ -9,21 +9,22 @@
 
 ## Dados da entrega no AVA (conferidos na página da tarefa)
 
-| Campo | Valor |
-|---|---|
-| Curso | Fundamentos para Back-end: JavaScript, TypeScript e PostgreSQL — 505682 |
-| Tarefa | Projeto Avaliativo - Módulo 1 |
-| Aberto | 03/07/2026 |
-| Vencimento | **31/07/2026, 21:00** |
-| Status do envio | Nenhum envio foi feito ainda |
-| Status da avaliação | Não há notas |
-| Anexos na tarefa | Nenhum (todo o enunciado está no documento do Google Docs) |
+| Campo               | Valor                                                                   |
+| ------------------- | ----------------------------------------------------------------------- |
+| Curso               | Fundamentos para Back-end: JavaScript, TypeScript e PostgreSQL — 505682 |
+| Tarefa              | Projeto Avaliativo - Módulo 1                                           |
+| Aberto              | 03/07/2026                                                              |
+| Vencimento          | **31/07/2026, 21:00**                                                   |
+| Status do envio     | Nenhum envio foi feito ainda                                            |
+| Status da avaliação | Não há notas                                                            |
+| Anexos na tarefa    | Nenhum (todo o enunciado está no documento do Google Docs)              |
 
 **Atenção:** o resumo anterior registrava prazo de 31/07/26 às 21h.
 
 ---
 
 # Desenvolvedor(a) Back End Node — T1 e T2
+
 ## Projeto Final Avaliativo — Módulo 01 — Semana 13
 
 ---
@@ -197,14 +198,14 @@ Durante a execução de uma funcionalidade, o fluxo da aplicação deverá segui
 
 Transcrição da imagem acima:
 
-| Etapa | Descrição | Pontos-chave |
-|---|---|---|
-| **Usuário** | Interage com a aplicação via terminal (CLI). | — |
-| **Menu** | Exibe as opções e recebe as escolhas do usuário. | Navegação entre opções · Entrada de dados · Seleção de ações |
-| **Controller** | Recebe os dados do menu e chama as regras de negócio no Service apropriado. | Validações básicas · Recebe dados do usuário · Chama métodos do Service |
-| **Service** | Contém as regras de negócio e orquestra as operações da aplicação. | Aplica regras de negócio · Validações de negócio · Chama métodos do Repository |
-| **Repository** | Responsável pela comunicação com o banco de dados. | Executa consultas SQL · Insere, atualiza, remove ou busca dados · Retorna resultados ao Service |
-| **PostgreSQL** | Banco de dados relacional onde os dados são armazenados. | Armazena dados de autores, livros, clientes e empréstimos · Garante integridade e persistência dos dados |
+| Etapa          | Descrição                                                                   | Pontos-chave                                                                                             |
+| -------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Usuário**    | Interage com a aplicação via terminal (CLI).                                | —                                                                                                        |
+| **Menu**       | Exibe as opções e recebe as escolhas do usuário.                            | Navegação entre opções · Entrada de dados · Seleção de ações                                             |
+| **Controller** | Recebe os dados do menu e chama as regras de negócio no Service apropriado. | Validações básicas · Recebe dados do usuário · Chama métodos do Service                                  |
+| **Service**    | Contém as regras de negócio e orquestra as operações da aplicação.          | Aplica regras de negócio · Validações de negócio · Chama métodos do Repository                           |
+| **Repository** | Responsável pela comunicação com o banco de dados.                          | Executa consultas SQL · Insere, atualiza, remove ou busca dados · Retorna resultados ao Service          |
+| **PostgreSQL** | Banco de dados relacional onde os dados são armazenados.                    | Armazena dados de autores, livros, clientes e empréstimos · Garante integridade e persistência dos dados |
 
 Essa organização favorece a reutilização de código, reduz o acoplamento entre os componentes e torna a aplicação mais próxima da arquitetura utilizada em sistemas profissionais.
 
@@ -419,7 +420,6 @@ O estudante deverá elaborar um arquivo `README.md` contendo:
 - estrutura de pastas;
 - exemplos de utilização;
 - integrantes da equipe;
-
 
 ---
 
@@ -676,30 +676,30 @@ Serão desconsiderados e receberão nota 0 os projetos que apresentarem plágio 
 
 ### Apresentação do Projeto — 3,00 pontos
 
-| Nº | Critério de Avaliação | 0 | 1,00 |
-|---|---|---|---|
-| 1 | Gravação de vídeo | Não foi realizada a gravação do vídeo. | Gravou o vídeo e abordou todos os tópicos listados no item 4.5. |
+| Nº  | Critério de Avaliação | 0                                      | 1,00                                                            |
+| --- | --------------------- | -------------------------------------- | --------------------------------------------------------------- |
+| 1   | Gravação de vídeo     | Não foi realizada a gravação do vídeo. | Gravou o vídeo e abordou todos os tópicos listados no item 4.5. |
 
 ### Uso do GitHub e README.md
 
-| Nº | Critério de Avaliação | 0 | 0,25 | 1,00 |
-|---|---|---|---|---|
-| 2 | Versionamento com branches e commits | O repositório do projeto não apresenta branches e commits. | O repositório do projeto apresenta parte das branches e commits distintos e nomeadas padronizadamente para cada funcionalidade desenvolvida. | O repositório do projeto apresenta branches e commits distintos e nomeadas padronizadamente para cada funcionalidade desenvolvida. |
-| 3 | Organização dos arquivos no repositório | O repositório do projeto não apresenta os arquivos (.sql, .csv, .ts e README.md) estruturados conforme as instruções. | O repositório do projeto apresenta parte dos arquivos (.sql, .csv, .ts e README.md) estruturados conforme as instruções. | O repositório do projeto apresenta os arquivos (.sql, .csv, .ts e README.md) estruturados conforme as instruções. |
+| Nº  | Critério de Avaliação                   | 0                                                                                                                     | 0,25                                                                                                                                         | 1,00                                                                                                                               |
+| --- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| 2   | Versionamento com branches e commits    | O repositório do projeto não apresenta branches e commits.                                                            | O repositório do projeto apresenta parte das branches e commits distintos e nomeadas padronizadamente para cada funcionalidade desenvolvida. | O repositório do projeto apresenta branches e commits distintos e nomeadas padronizadamente para cada funcionalidade desenvolvida. |
+| 3   | Organização dos arquivos no repositório | O repositório do projeto não apresenta os arquivos (.sql, .csv, .ts e README.md) estruturados conforme as instruções. | O repositório do projeto apresenta parte dos arquivos (.sql, .csv, .ts e README.md) estruturados conforme as instruções.                     | O repositório do projeto apresenta os arquivos (.sql, .csv, .ts e README.md) estruturados conforme as instruções.                  |
 
 ### Desenvolvimento da Aplicação
 
-| Nº | Critério de Avaliação | 0 | 0,50 | 1,00 |
-|---|---|---|---|---|
-| 4 | Configuração do projeto | O projeto não apresenta a inicialização do ecossistema Node.js nem a configuração do compilador TypeScript (tsconfig.json) e não estabelece a conexão funcional com o banco de dados PostgreSQL. | O ambiente do projeto apresenta a inicialização do ecossistema Node.js, a configuração do compilador TypeScript (tsconfig.json) e a conexão funcional com o banco de dados PostgreSQL de forma parcial. | O ambiente do projeto apresenta a inicialização do ecossistema Node.js, a configuração do compilador TypeScript (tsconfig.json) e a conexão funcional com o banco de dados PostgreSQL. |
-| 5 | Modelagem do banco de dados | O modelo físico do banco de dados não apresenta a estrutura das tabelas normalizadas, nem a definição de chaves primárias (PK) e estrangeiras (FK). | O modelo físico do banco de dados apresenta a estrutura das tabelas normalizadas, mas com as chaves primárias (PK) e estrangeiras (FK) definidas de forma parcial. | O modelo físico do banco de dados apresenta a estrutura das tabelas normalizadas, com a definição de chaves primárias (PK) e estrangeiras (FK), mapeando fielmente os relacionamentos do negócio. |
-| 6 | Recursos da linguagem | O código-fonte não apresenta a definição de classes, interfaces e tipagem estática do TypeScript. | O código-fonte apresenta algumas definições de classes, interfaces e tipagem estática do TypeScript. | O código-fonte apresenta a definição de classes, interfaces e tipagem estática do TypeScript para estruturar as entidades e contratos do sistema. |
-| 7 | Implementação da arquitetura em camadas, modularização, organização do código | O código-fonte não utiliza nomenclaturas descritivas para variáveis e métodos, nem funções de responsabilidade única. | O código-fonte utiliza algumas nomenclaturas descritivas para variáveis e métodos e funções de responsabilidade única de forma parcial. | O código-fonte utiliza nomenclaturas descritivas para variáveis e métodos, além de funções de responsabilidade única, aplicando princípios de Clean Code e SOLID para o reaproveitamento e manutenção do software. |
-| 8 | Uso do PostgreSQL | O código-fonte não apresenta a implementação das operações de persistência e manipulação de dados. | O código-fonte apresenta parte da implementação das operações de persistência e manipulação de dados. | O código-fonte apresenta a implementação das operações de persistência e manipulação de dados (Create, Read, Update, Delete) utilizando comandos SQL nativos do PostgreSQL. |
+| Nº  | Critério de Avaliação                                                         | 0                                                                                                                                                                                                | 0,50                                                                                                                                                                                                    | 1,00                                                                                                                                                                                                               |
+| --- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 4   | Configuração do projeto                                                       | O projeto não apresenta a inicialização do ecossistema Node.js nem a configuração do compilador TypeScript (tsconfig.json) e não estabelece a conexão funcional com o banco de dados PostgreSQL. | O ambiente do projeto apresenta a inicialização do ecossistema Node.js, a configuração do compilador TypeScript (tsconfig.json) e a conexão funcional com o banco de dados PostgreSQL de forma parcial. | O ambiente do projeto apresenta a inicialização do ecossistema Node.js, a configuração do compilador TypeScript (tsconfig.json) e a conexão funcional com o banco de dados PostgreSQL.                             |
+| 5   | Modelagem do banco de dados                                                   | O modelo físico do banco de dados não apresenta a estrutura das tabelas normalizadas, nem a definição de chaves primárias (PK) e estrangeiras (FK).                                              | O modelo físico do banco de dados apresenta a estrutura das tabelas normalizadas, mas com as chaves primárias (PK) e estrangeiras (FK) definidas de forma parcial.                                      | O modelo físico do banco de dados apresenta a estrutura das tabelas normalizadas, com a definição de chaves primárias (PK) e estrangeiras (FK), mapeando fielmente os relacionamentos do negócio.                  |
+| 6   | Recursos da linguagem                                                         | O código-fonte não apresenta a definição de classes, interfaces e tipagem estática do TypeScript.                                                                                                | O código-fonte apresenta algumas definições de classes, interfaces e tipagem estática do TypeScript.                                                                                                    | O código-fonte apresenta a definição de classes, interfaces e tipagem estática do TypeScript para estruturar as entidades e contratos do sistema.                                                                  |
+| 7   | Implementação da arquitetura em camadas, modularização, organização do código | O código-fonte não utiliza nomenclaturas descritivas para variáveis e métodos, nem funções de responsabilidade única.                                                                            | O código-fonte utiliza algumas nomenclaturas descritivas para variáveis e métodos e funções de responsabilidade única de forma parcial.                                                                 | O código-fonte utiliza nomenclaturas descritivas para variáveis e métodos, além de funções de responsabilidade única, aplicando princípios de Clean Code e SOLID para o reaproveitamento e manutenção do software. |
+| 8   | Uso do PostgreSQL                                                             | O código-fonte não apresenta a implementação das operações de persistência e manipulação de dados.                                                                                               | O código-fonte apresenta parte da implementação das operações de persistência e manipulação de dados.                                                                                                   | O código-fonte apresenta a implementação das operações de persistência e manipulação de dados (Create, Read, Update, Delete) utilizando comandos SQL nativos do PostgreSQL.                                        |
 
-| Nº | Critério de Avaliação | 0 | 1,00 | 2,00 |
-|---|---|---|---|---|
-| 8 | Implementação das funcionalidades obrigatórias | A aplicação não apresenta o funcionamento integrado dos módulos obrigatórios. | A aplicação apresenta o funcionamento integrado dos módulos obrigatórios de forma parcial. | A aplicação apresenta o funcionamento integrado dos módulos obrigatórios (Autores, Livros, Clientes, Empréstimos e Relatórios), processando as regras de negócio de acordo com os requisitos especificados. |
+| Nº  | Critério de Avaliação                          | 0                                                                             | 1,00                                                                                       | 2,00                                                                                                                                                                                                        |
+| --- | ---------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 8   | Implementação das funcionalidades obrigatórias | A aplicação não apresenta o funcionamento integrado dos módulos obrigatórios. | A aplicação apresenta o funcionamento integrado dos módulos obrigatórios de forma parcial. | A aplicação apresenta o funcionamento integrado dos módulos obrigatórios (Autores, Livros, Clientes, Empréstimos e Relatórios), processando as regras de negócio de acordo com os requisitos especificados. |
 
 > Observação: a numeração do critério "8" aparece duplicada no documento original do professor.
 
@@ -709,6 +709,5 @@ Serão desconsiderados e receberão nota 0 os projetos que apresentarem plágio 
 
 - `./assets/01-estrutura-de-pastas-e-camadas.png` — diagrama da estrutura de pastas e das camadas da aplicação.
 - `./assets/02-fluxo-arquitetura-esperada.png` — diagrama do fluxo Usuário → Menu → Controller → Service → Repository → PostgreSQL.
-- `./assets/03-ava-tarefa-projeto-avaliativo.jpg` — captura da página da tarefa no AVA.
-- `./projeto_m13.resumo-antigo.md` — resumo parcial anterior, mantido apenas para referência histórica.
-, funcionalidades, estrutura de pastas, exemplos de utilização, integrantes da equipe 
+
+> Documentos complementares: `./enunciado-e-rubrica.md` (rubrica de nota base, deduções e bônus) e `./modelagem-banco.md` (detalhamento do modelo físico implementado).

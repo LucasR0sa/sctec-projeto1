@@ -1,3 +1,0 @@
--- Script de carga inicial mantido para compatibilidade com a pasta do template.
--- O seed principal do projeto esta em:
--- src/database/seed.sql

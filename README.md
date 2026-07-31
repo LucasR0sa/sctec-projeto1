@@ -508,10 +508,12 @@ src/
 ├── menus/                   # menus navegaveis da CLI
 ├── database/                # pool, schema.sql, seed.sql, executor de SQL
 ├── utils/                   # Cli, DomainError, validacoes, senha
-├── spec/                    # enunciado original do projeto
+├── __tests__/               # testes de integracao das regras de emprestimo
 └── @common/ usecase/ view/  # template original do professor (preservado)
-docs/                        # modelagem, guia do DBeaver, enunciado e rubrica
+docs/                        # enunciado, rubrica, modelagem, guia do DBeaver e diagramas
 ```
+
+`src/` contem apenas codigo-fonte (`.ts`) e os scripts SQL da aplicacao. Toda a documentacao fica em `docs/`.
 
 ---
 
