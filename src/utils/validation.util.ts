@@ -118,6 +118,57 @@ export function parseIsbn(value: string | undefined): string {
   return normalized
 }
 
+export function parseEmail(value: string | undefined): string {
+  const normalized = normalizeOptionalText(value)
+
+  if (!normalized) {
+    throw new DomainError('Email e obrigatorio.')
+  }
+
+  // Mesma regra do CHECK chk_clientes_email definido no schema.
+  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(normalized)) {
+    throw new DomainError('Email invalido.')
+  }
+
+  return normalized.toLowerCase()
+}
+
+export function parseOptionalDocumento(
+  value: string | undefined
+): string | null {
+  const normalized = normalizeOptionalText(value)
+
+  if (!normalized) {
+    return null
+  }
+
+  const digits = normalized.replace(/\D/g, '')
+
+  if (digits.length < 11 || digits.length > 14) {
+    throw new DomainError('Documento deve ter entre 11 e 14 digitos.')
+  }
+
+  return digits
+}
+
+export function parseOptionalTelefone(
+  value: string | undefined
+): string | null {
+  const normalized = normalizeOptionalText(value)
+
+  if (!normalized) {
+    return null
+  }
+
+  const digits = normalized.replace(/\D/g, '')
+
+  if (digits.length < 10 || digits.length > 13) {
+    throw new DomainError('Telefone deve ter entre 10 e 13 digitos.')
+  }
+
+  return digits
+}
+
 export function parseIdList(
   value: string | undefined,
   fieldName: string
