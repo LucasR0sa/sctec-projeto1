@@ -18,8 +18,8 @@ Duracao alvo: **5 a 10 minutos**. Gravar a tela durante toda a demonstracao.
 
 **Falar:**
 
-> "Oi, eu sou o Lucas. Esse e o BookStore Manager CLI, uma aplicacao de linha de comando em Node.js com TypeScript para gerenciar uma livraria, com persistencia em PostgreSQL.
->
+> "Oi, eu sou o Lucas. Esse e o BookStore Manager CLI, uma aplicacao em Node.js com TypeScript para gerenciar uma livraria, com banco de dados em PostgreSQL.
+
 > A aplicacao gerencia autores, livros, clientes e emprestimos. Todo o acesso ao banco e feito com SQL nativo pela biblioteca `pg`, com queries parametrizadas — sem ORM e sem query builder, como o enunciado exige."
 
 ---

@@ -65,6 +65,10 @@ As dependencias sao montadas por **injecao via construtor** em [src/main.ts](src
 
 Seis tabelas, com a relacao **N:N** entre livros e autores resolvida pela associativa `livro_autor`.
 
+![Modelagem do banco bookstore_manager](docs/assets/modelagem-bookstore.png)
+
+_Diagrama gerado no DBeaver a partir do banco criado por [src/database/schema.sql](src/database/schema.sql). Abaixo, o mesmo modelo em Mermaid, para leitura direta no GitHub._
+
 ```mermaid
 erDiagram
     AUTORES ||--o{ LIVRO_AUTOR : escreve
@@ -504,10 +508,12 @@ src/
 ├── menus/                   # menus navegaveis da CLI
 ├── database/                # pool, schema.sql, seed.sql, executor de SQL
 ├── utils/                   # Cli, DomainError, validacoes, senha
-├── spec/                    # enunciado original do projeto
+├── __tests__/               # testes de integracao das regras de emprestimo
 └── @common/ usecase/ view/  # template original do professor (preservado)
-docs/                        # modelagem, guia do DBeaver, enunciado e rubrica
+docs/                        # enunciado, rubrica, modelagem, guia do DBeaver e diagramas
 ```
+
+`src/` contem apenas codigo-fonte (`.ts`) e os scripts SQL da aplicacao. Toda a documentacao fica em `docs/`.
 
 ---
 
