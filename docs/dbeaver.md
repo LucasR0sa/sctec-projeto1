@@ -34,22 +34,29 @@ O `schema.sql` recria tabelas, chaves, indices, triggers e views. Como ele derru
 Execute:
 
 ```sql
-SELECT table_name
+SELECT table_name, table_type
 FROM information_schema.tables
 WHERE table_schema = 'public'
-ORDER BY table_name;
+ORDER BY table_type, table_name;
 ```
 
-Resultado esperado com tabelas principais:
+A view `information_schema.tables` lista tabelas e views juntas, por isso a coluna `table_type`. Resultado esperado: 6 tabelas e 5 views.
 
 ```text
-autores
-clientes
-emprestimos
-funcionarios
-livro_autor
-livros
+autores                            BASE TABLE
+clientes                           BASE TABLE
+emprestimos                        BASE TABLE
+funcionarios                       BASE TABLE
+livro_autor                        BASE TABLE
+livros                             BASE TABLE
+vw_clientes_com_emprestimos_ativos VIEW
+vw_emprestimos_por_livro           VIEW
+vw_livros_disponiveis              VIEW
+vw_livros_emprestados              VIEW
+vw_livros_por_autor                VIEW
 ```
+
+Para ver apenas as tabelas, acrescente `AND table_type = 'BASE TABLE'`.
 
 Depois confira os relatorios:
 

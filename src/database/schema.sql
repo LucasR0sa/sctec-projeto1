@@ -41,7 +41,8 @@ CREATE TABLE autores (
 );
 
 CREATE UNIQUE INDEX uq_autores_nome_normalizado
-  ON autores (LOWER(TRIM(nome)));
+  ON autores (LOWER(TRIM(nome)))
+  WHERE ativo = TRUE;
 
 CREATE TABLE clientes (
   id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,

@@ -5,6 +5,7 @@ import {
   SalvarAutorData
 } from '../models/Autor'
 import { AutorRepository } from '../repositories/AutorRepository'
+import { isUniqueViolation } from '../utils/database.util'
 import { DomainError } from '../utils/DomainError'
 import {
   normalizeOptionalText,
@@ -12,13 +13,23 @@ import {
   requireMinText
 } from '../utils/validation.util'
 
+const AUTOR_NOME_CONSTRAINT = 'uq_autores_nome_normalizado'
+
 export class AutorService {
   constructor(private readonly autorRepository: AutorRepository) {}
 
   async criar(input: CriarAutorInput): Promise<Autor> {
     const data = await this.prepareCreateData(input)
 
-    return await this.autorRepository.create(data)
+    try {
+      return await this.autorRepository.create(data)
+    } catch (error) {
+      if (isUniqueViolation(error, AUTOR_NOME_CONSTRAINT)) {
+        throw new DomainError('Ja existe um autor cadastrado com esse nome.')
+      }
+
+      throw error
+    }
   }
 
   async listar(): Promise<Autor[]> {
@@ -38,7 +49,18 @@ export class AutorService {
   async atualizar(id: number, input: AtualizarAutorInput): Promise<Autor> {
     const current = await this.buscarPorId(id)
     const data = await this.prepareUpdateData(current, input)
-    const updated = await this.autorRepository.update(id, data)
+
+    let updated: Autor | null
+
+    try {
+      updated = await this.autorRepository.update(id, data)
+    } catch (error) {
+      if (isUniqueViolation(error, AUTOR_NOME_CONSTRAINT)) {
+        throw new DomainError('Ja existe um autor cadastrado com esse nome.')
+      }
+
+      throw error
+    }
 
     if (!updated) {
       throw new DomainError('Autor nao encontrado para atualizacao.')
