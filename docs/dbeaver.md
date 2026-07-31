@@ -97,12 +97,12 @@ No DBeaver:
 3. Selecione as tabelas principais.
 4. Clique com o botao direito e escolha `View Diagram` ou `ER Diagram`.
 5. Organize visualmente as tabelas.
-6. Exporte como PNG para `docs/modelagem-bookstore.png`.
+6. Exporte como PNG para `docs/assets/modelagem-bookstore.png`.
 
-Depois adicione no README:
+A imagem ja gerada esta versionada nesse caminho e referenciada na secao de modelagem do README:
 
 ```md
-![Modelagem do banco](docs/modelagem-bookstore.png)
+![Modelagem do banco bookstore_manager](docs/assets/modelagem-bookstore.png)
 ```
 
 Essa imagem e excelente para recrutadores e tambem facilita a explicacao no video.

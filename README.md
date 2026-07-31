@@ -65,6 +65,10 @@ As dependencias sao montadas por **injecao via construtor** em [src/main.ts](src
 
 Seis tabelas, com a relacao **N:N** entre livros e autores resolvida pela associativa `livro_autor`.
 
+![Modelagem do banco bookstore_manager](docs/assets/modelagem-bookstore.png)
+
+_Diagrama gerado no DBeaver a partir do banco criado por [src/database/schema.sql](src/database/schema.sql). Abaixo, o mesmo modelo em Mermaid, para leitura direta no GitHub._
+
 ```mermaid
 erDiagram
     AUTORES ||--o{ LIVRO_AUTOR : escreve
